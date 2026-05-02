@@ -20,7 +20,7 @@
       <a href="#" class="logo-link" aria-label="Franziskus-Schule – Startseite">
         <img src="images/logo.jpg" alt="Franziskus-Schule – Freie Waldorf-Förderschule" class="logo-image">
       </a>
-      
+
       <nav class="main-nav">
         <a href="#">Unsere Schule</a>
         <a href="#">Für Ihr Kind</a>
@@ -28,17 +28,32 @@
         <a href="#">Schulleben</a>
         <a href="#">Kontakt</a>
       </nav>
-      
+
       <div class="header-phone">
         <span class="label">Verwaltung</span>
         <a href="tel:+4922479000151" class="number">02247 9000 151</a>
       </div>
-      
-      <button class="mobile-toggle" aria-label="Menü öffnen">
+
+      <button class="mobile-toggle" aria-label="Menü öffnen" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" aria-hidden="true">
+      <nav class="mobile-nav">
+        <a href="#">Unsere Schule</a>
+        <a href="#">Für Ihr Kind</a>
+        <a href="#">Aufnahme</a>
+        <a href="#">Schulleben</a>
+        <a href="#">Kontakt</a>
+      </nav>
+      <div class="mobile-menu-contact">
+        <span class="label">Verwaltung</span>
+        <a href="tel:+4922479000151">02247 9000 151</a>
+      </div>
     </div>
   </header>
 
@@ -543,5 +558,27 @@
     </div>
   </footer>
 
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    const menu = document.querySelector('.mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      toggle.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', isOpen);
+      menu.setAttribute('aria-hidden', !isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.remove('is-open');
+        toggle.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+        menu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
 </body>
 </html>
