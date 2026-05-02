@@ -1218,7 +1218,7 @@ a {
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .main-nav {
     display: none;
   }
@@ -1294,7 +1294,7 @@ a {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .container {
     padding-left: 20px;
     padding-right: 20px;
