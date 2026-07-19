@@ -2253,6 +2253,137 @@ a {
   color: var(--ink);
 }
 
+/* --- Aus dem Schulalltag --- */
+.alltag {
+  background-color: var(--cream-warm);
+  padding: var(--space-xxl) 0;
+}
+
+.alltag-header,
+.rueckblick-header {
+  max-width: 44rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.alltag-header h2,
+.rueckblick-header h2 {
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  font-weight: 350;
+  color: var(--navy-deep);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.alltag-header h2 em,
+.rueckblick-header h2 em {
+  font-style: italic;
+  font-weight: 350;
+  color: var(--amber-deep);
+}
+
+.alltag-header p,
+.rueckblick-header p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.alltag-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.alltag-karte {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+
+.alltag-bild {
+  aspect-ratio: 4 / 3;
+  background-color: var(--moss);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.alltag-bild img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.alltag-karte h3 {
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--navy-deep);
+}
+
+.alltag-karte p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.alltag-hinweis {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* --- Rückblick --- */
+.rueckblick {
+  padding: var(--space-xxl) 0;
+}
+
+.presse-liste {
+  list-style: none;
+  max-width: 46rem;
+  border-top: 1px solid var(--sand-deep);
+}
+
+.presse-item {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.375rem 0;
+  border-bottom: 1px solid var(--sand-deep);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.presse-item:hover {
+  background-color: var(--sand-deep);
+}
+
+.presse-jahr {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.0625rem;
+  color: var(--amber-deep);
+}
+
+.presse-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.presse-titel {
+  font-size: 1.0625rem;
+  color: var(--navy-deep);
+  line-height: 1.4;
+}
+
+.presse-quelle {
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
   .main-nav {
@@ -2434,6 +2565,16 @@ a {
   .fest {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+
+  .alltag-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .presse-item {
+    grid-template-columns: 5rem 1fr;
+    gap: 1rem;
   }
 
   .fest-zeit {
