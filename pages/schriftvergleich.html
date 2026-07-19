@@ -11,32 +11,12 @@
   <link rel="stylesheet" href="../styles.css">
 
   <style>
-    /* Die beiden Baar-Schriften, lokal eingebunden.
-       Noch als TTF — für den Vergleich völlig ausreichend.
-       Erst wenn eine Variante gewinnt, lohnt die Umwandlung in WOFF2. */
-    @font-face {
-      font-family: 'Baar Metanoia';
-      src: url('../fonts/baar/baar-metanoia-regular.ttf') format('truetype');
-      font-weight: 400; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Baar Metanoia';
-      src: url('../fonts/baar/baar-metanoia-bold.ttf') format('truetype');
-      font-weight: 700; font-style: normal; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Baar Metanoia';
-      src: url('../fonts/baar/baar-metanoia-italic.ttf') format('truetype');
-      font-weight: 400; font-style: italic; font-display: swap;
-    }
-    @font-face {
-      font-family: 'Baar Metanoia';
-      src: url('../fonts/baar/baar-metanoia-bolditalic.ttf') format('truetype');
-      font-weight: 700; font-style: italic; font-display: swap;
-    }
+    /* Baar Metanoia kommt inzwischen aus styles.css — sie ist seit der
+       Entscheidung für Variante B die Überschriftenschrift der Website.
+       Nur Baar Sophia wird ausschließlich hier gebraucht. */
     @font-face {
       font-family: 'Baar Sophia';
-      src: url('../fonts/baar/baar-sophia-regular.ttf') format('truetype');
+      src: url('../fonts/baar/baar-sophia-regular.woff2') format('woff2');
       font-weight: 400; font-style: normal; font-display: swap;
     }
 
@@ -175,8 +155,8 @@
         <div class="variante v-b">
           <div class="variante-kopf">
             <span class="variante-nr">Variante B</span>
-            <span class="variante-name">Baar Metanoia in den Überschriften, Instrument Sans im Text</span>
-            <span class="variante-hinweis">Mein Vorschlag. Die anthroposophische Handschrift sitzt dort, wo sie gesehen wird und wo sie niemanden beim Lesen aufhält. Der Fließtext bleibt so ruhig wie möglich — für Eltern, die leichtes Lesen brauchen.</span>
+            <span class="variante-name">Baar Metanoia in den Überschriften, Instrument Sans im Text — <strong>so ist die Website jetzt umgesetzt</strong></span>
+            <span class="variante-hinweis">Die anthroposophische Handschrift sitzt dort, wo sie gesehen wird und wo sie niemanden beim Lesen aufhält. Der Fließtext bleibt so ruhig wie möglich — für Eltern, die leichtes Lesen brauchen. Diese Variante ist seit Juli 2026 auf der ganzen Website in Kraft; die übrigen drei stehen weiter zum Vergleich daneben.</span>
           </div>
           <div class="muster">
             <h2>Maßstab ist nicht, was einer kann, sondern <em>was er ist</em>.</h2>

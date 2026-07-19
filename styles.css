@@ -1,13 +1,57 @@
 /* ========== SCHRIFTEN (lokal eingebunden) ==========
-   Fraunces und Instrument Sans liegen als Variable Fonts in fonts/.
-   Lokal statt über Google Fonts, damit beim Seitenaufruf keine
-   Verbindung zu Google entsteht und keine IP-Adressen der Besucher
-   übertragen werden. Beide Schriften stehen unter der SIL Open Font
-   License 1.1 — Selbsthosting ist ausdrücklich erlaubt.
+   Alle Schriften liegen lokal in fonts/. Kein Google Fonts, damit beim
+   Seitenaufruf keine Verbindung zu Dritten entsteht und keine
+   IP-Adressen der Besucher übertragen werden.
 
-   Je Schnitt eine Datei, die den ganzen Gewichtsbereich abdeckt;
-   getrennt nach Zeichensatz, damit Browser nur laden, was die Seite
-   tatsächlich braucht. */
+   Überschriften:  Baar Metanoia — von der Schulleitung gewählt,
+                   anthroposophische Handschrift, wärmer und offener
+                   als eine Display-Antiqua.
+   Fließtext:      Instrument Sans — bewusst ruhig, damit Eltern, die
+                   leichtes Lesen brauchen, nicht ausgebremst werden.
+
+   Baar Metanoia von Lutz Baar, laut baar.se/fonts.html (Juni 2018)
+   frei für private, kulturelle und kommerzielle Nutzung; nur der
+   Weiterverkauf ist untersagt. Instrument Sans und Fraunces stehen
+   unter der SIL Open Font License 1.1.
+
+   Fraunces wird auf den Seiten selbst nicht mehr verwendet, bleibt
+   aber eingebunden: Die Vergleichsseite unter pages/schriftvergleich.html
+   zeigt damit den früheren Stand. Browser laden eine Schrift nur, wenn
+   sie tatsächlich gebraucht wird — auf den normalen Seiten kostet das
+   also nichts. */
+
+/* --- Baar Metanoia: Überschriften --- */
+@font-face {
+  font-family: 'Baar Metanoia';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/baar/baar-metanoia-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Baar Metanoia';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/baar/baar-metanoia-bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Baar Metanoia';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/baar/baar-metanoia-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Baar Metanoia';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/baar/baar-metanoia-bolditalic.woff2') format('woff2');
+}
 
 @font-face {
   font-family: 'Fraunces';
@@ -108,7 +152,7 @@
   --signal: #E5007D;
 
   /* Typography */
-  --font-display: 'Fraunces', Georgia, serif;
+  --font-display: 'Baar Metanoia', Georgia, serif;
   --font-body: 'Instrument Sans', -apple-system, sans-serif;
 
   /* Spacing rhythm */
