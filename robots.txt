@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://janbettermann.github.io/Franziskus-Schule/sitemap.xml
