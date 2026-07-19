@@ -2181,16 +2181,6 @@ a {
   align-items: start;
 }
 
-/* Jedes zweite Fest spiegelt Bild und Text — das hält die lange
-   Liste in Bewegung, ohne dass die Zeitachse springt. */
-.fest:nth-child(even) .fest-bild {
-  order: 3;
-}
-
-.fest:nth-child(even) .fest-text {
-  order: 2;
-}
-
 .fest-zeit {
   display: flex;
   flex-direction: column;
@@ -2440,15 +2430,10 @@ a {
   }
 
   /* Jahreslauf: Zeitmarke wandert über das Fest, Bild und Text
-     stapeln sich. Die Spiegelung jedes zweiten Festes entfällt. */
+     stapeln sich. */
   .fest {
     grid-template-columns: 1fr;
     gap: 1.25rem;
-  }
-
-  .fest:nth-child(even) .fest-bild,
-  .fest:nth-child(even) .fest-text {
-    order: initial;
   }
 
   .fest-zeit {
