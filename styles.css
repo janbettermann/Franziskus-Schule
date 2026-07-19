@@ -2646,6 +2646,18 @@ a.kontakt-wert:hover {
 }
 
 /* --- Karte (Zwei-Klick-Lösung) --- */
+
+/* Auf der Kontaktseite bringt .karte das Seitenverhältnis selbst mit.
+   Der Container darf hier also nicht zusätzlich 5:4 erzwingen — sonst
+   wird die geladene Karte samt Quellenangabe hineingequetscht.
+   Auf der Startseite bleibt .anfahrt-map unverändert. */
+.anfahrt-seite .anfahrt-map {
+  aspect-ratio: auto;
+  background: none;
+  display: block;
+  overflow: visible;
+}
+
 .karte {
   aspect-ratio: 5 / 4;
   background-color: var(--moss);
