@@ -56,3 +56,39 @@
   if (mq.addEventListener) mq.addEventListener('change', onBreakpoint);
   else if (mq.addListener) mq.addListener(onBreakpoint);
 })();
+
+
+// Karte: Zwei-Klick-Lösung.
+// Die OpenStreetMap-Karte wird erst nach ausdrücklichem Klick geladen.
+// Vorher geht keine Anfrage an openstreetmap.org — es werden also auch
+// keine IP-Adressen der Besucher übertragen. Ohne JavaScript bleibt die
+// Vorschau mit dem Routenlink stehen; die Adresse steht ohnehin daneben.
+
+(function () {
+  const karten = document.querySelectorAll('.karte[data-karte-src]');
+
+  karten.forEach(function (karte) {
+    const knopf = karte.querySelector('.karte-laden');
+    if (!knopf) return;
+
+    knopf.addEventListener('click', function () {
+      const rahmen = document.createElement('iframe');
+      rahmen.src = karte.dataset.karteSrc;
+      rahmen.title = 'Karte: Lage der Franziskus-Schule, Breite Str. 44, Neunkirchen-Seelscheid';
+      rahmen.loading = 'lazy';
+      rahmen.setAttribute('referrerpolicy', 'no-referrer');
+      rahmen.className = 'karte-rahmen';
+
+      karte.textContent = '';
+      karte.appendChild(rahmen);
+
+      // Pflichtangabe nach der OpenStreetMap-Lizenz (ODbL)
+      const quelle = document.createElement('p');
+      quelle.className = 'karte-quelle';
+      quelle.innerHTML = 'Kartendaten © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a>-Mitwirkende';
+      karte.appendChild(quelle);
+
+      karte.classList.add('karte-geladen');
+    });
+  });
+})();

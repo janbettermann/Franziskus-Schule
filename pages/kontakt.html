@@ -189,18 +189,18 @@
           </div>
 
           <div class="anfahrt-map">
-            <div class="placeholder">
-              <div class="placeholder-label">Interaktive Karte</div>
-              <div class="placeholder-description">
-                OpenStreetMap mit Markierung der Schule<br><br>
-                Breite Str. 44, 53819 Neunkirchen-Seelscheid
+            <div class="karte"
+                 data-karte-src="https://www.openstreetmap.org/export/embed.html?bbox=7.3108%2C50.8714%2C7.3268%2C50.8774&amp;layer=mapnik&amp;marker=50.8743739%2C7.3188456">
+              <div class="karte-vorschau">
+                <p class="karte-hinweis">Die Karte wird von <strong>OpenStreetMap</strong> geladen. Dabei wird Ihre IP-Adresse an die OpenStreetMap Foundation übertragen. Erst wenn Sie auf die Schaltfläche klicken, wird diese Verbindung aufgebaut.</p>
+                <button type="button" class="btn-primary karte-laden">
+                  Karte laden
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <p class="karte-alternative">Lieber ohne Karte? <a href="https://www.openstreetmap.org/directions?to=50.8743739%2C7.3188456" rel="noopener">Route bei OpenStreetMap berechnen</a></p>
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="todo-block">
-          <strong>Karte einbinden — mit Datenschutz-Vorbehalt:</strong> Eine eingebettete Google-Maps-Karte überträgt beim Seitenaufruf Daten an Google und ist ohne vorherige Einwilligung der Besucher:innen datenschutzrechtlich problematisch. Empfehlung: OpenStreetMap einbinden oder ein statisches Kartenbild mit Link zur Route verwenden. Bitte mit der Schulleitung abstimmen.
         </div>
       </div>
     </section>
@@ -251,7 +251,7 @@
         </div>
 
         <div class="todo-block">
-          <strong>Datenschutzerklärung — ebenfalls verpflichtend:</strong> Nach Art. 13 DSGVO. Benötigt werden: verantwortliche Stelle, Kontaktdaten der/des Datenschutzbeauftragten, welche Daten beim Seitenaufruf verarbeitet werden (Server-Logs des Hosters), eingebundene Dienste (aktuell werden Schriften von Google Fonts geladen — das überträgt IP-Adressen an Google und sollte durch lokal eingebundene Schriften ersetzt werden), Speicherdauer und die Betroffenenrechte. Diese Texte sollten von einer juristisch kundigen Person erstellt oder geprüft werden — ich kann sie nicht rechtssicher formulieren.
+          <strong>Datenschutzerklärung — ebenfalls verpflichtend:</strong> Nach Art. 13 DSGVO. Benötigt werden: verantwortliche Stelle, Kontaktdaten der/des Datenschutzbeauftragten, welche Daten beim Seitenaufruf verarbeitet werden (Server-Logs des Hosters), Speicherdauer und die Betroffenenrechte. Zu den eingebundenen Diensten: Die Schriften liegen lokal auf dem eigenen Server, es werden also keine Daten an Google übertragen. Die Karte auf dieser Seite lädt erst nach ausdrücklichem Klick — dabei wird die IP-Adresse an die OpenStreetMap Foundation übermittelt; das gehört in die Erklärung. Diese Texte sollten von einer juristisch kundigen Person erstellt oder geprüft werden — ich kann sie nicht rechtssicher formulieren.
         </div>
       </div>
     </section>
