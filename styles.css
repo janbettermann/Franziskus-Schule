@@ -1038,6 +1038,17 @@ a {
   background-image: linear-gradient(135deg, #c8804a 0%, #8B5A3C 50%, #4a3728 100%);
 }
 
+/* Zwei der Fotos zeigen eine aufgeklappte Doppeltafel. Der Zuschnitt
+   muss deshalb auf die Hälfte zielen, auf der das Motiv sitzt —
+   sonst landet der Bildausschnitt auf der Fuge zwischen den Tafeln. */
+.tafelbild-2 img {
+  object-position: 28% center;  /* Eule: linke Tafelhälfte */
+}
+
+.tafelbild-3 img {
+  object-position: 76% center;  /* Igel: rechte Tafelhälfte */
+}
+
 .tafelbild-2 {
   background-image: linear-gradient(135deg, #6b7a9e 0%, #3F4D7A 100%);
 }
