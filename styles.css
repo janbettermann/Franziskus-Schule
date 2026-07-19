@@ -2132,6 +2132,137 @@ a {
   box-shadow: 0 8px 24px rgba(217, 129, 62, 0.3);
 }
 
+/* ========== „SCHULLEBEN" — SEITEN-SPEZIFISCHE STYLES ========== */
+
+/* --- Der Jahreslauf --- */
+.jahreslauf {
+  padding: clamp(3rem, 6vw, 5rem) 0 var(--space-xxl);
+}
+
+.jahreslauf-header {
+  max-width: 46rem;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.jahreslauf-header h2 {
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  font-weight: 350;
+  color: var(--navy-deep);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.jahreslauf-header h2 em {
+  font-style: italic;
+  font-weight: 350;
+  color: var(--amber-deep);
+}
+
+.jahreslauf-header p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.jahreslauf-liste {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3.5rem, 7vw, 6rem);
+}
+
+/* Ein Fest: Zeitmarke links, dann Bild und Text.
+   Die Zeitmarke läuft als schmale Spalte durch die ganze Liste
+   und gibt dem Jahreslauf seine Achse. */
+.fest {
+  display: grid;
+  grid-template-columns: 7rem 1fr 1fr;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  align-items: start;
+}
+
+/* Jedes zweite Fest spiegelt Bild und Text — das hält die lange
+   Liste in Bewegung, ohne dass die Zeitachse springt. */
+.fest:nth-child(even) .fest-bild {
+  order: 3;
+}
+
+.fest:nth-child(even) .fest-text {
+  order: 2;
+}
+
+.fest-zeit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--sand-deep);
+}
+
+.fest-monat {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.fest-datum {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.375rem;
+  font-weight: 400;
+  color: var(--amber-deep);
+  line-height: 1.2;
+}
+
+.fest-bild {
+  aspect-ratio: 4 / 3;
+  background-color: var(--moss);
+  background-image: linear-gradient(145deg, rgba(63, 77, 122, 0.08), rgba(217, 129, 62, 0.06));
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.fest-bild img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.fest-bild:has(img) {
+  padding: 0;
+}
+
+.fest-text h3 {
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  font-weight: 500;
+  color: var(--navy-deep);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.fest-text p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.fest-text p + p {
+  margin-top: 0.875rem;
+}
+
+.fest-text em {
+  font-style: italic;
+  color: var(--ink);
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
   .main-nav {
@@ -2306,6 +2437,29 @@ a {
 
   .firmen-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Jahreslauf: Zeitmarke wandert über das Fest, Bild und Text
+     stapeln sich. Die Spiegelung jedes zweiten Festes entfällt. */
+  .fest {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .fest:nth-child(even) .fest-bild,
+  .fest:nth-child(even) .fest-text {
+    order: initial;
+  }
+
+  .fest-zeit {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding-top: 0.5rem;
+  }
+
+  .fest-datum {
+    font-size: 1.125rem;
   }
 }
 
