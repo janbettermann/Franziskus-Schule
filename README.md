@@ -6,12 +6,13 @@ Redesign der Startseite der Franziskus-Schule, Freie Waldorfförderschule im Rhe
 
 ```
 franziskus-schule/
-├── index.html          ← Die Startseite
-├── styles.css          ← Alle Styles (ausgelagert aus index.html)
-├── pages/              ← Unterseiten (aufnahme.html, ueber-uns.html, …)
+├── index.html          ← Die Startseite (Markup)
+├── styles.css          ← Komplettes Styling (Farben, Layout, Responsive)
+├── pages/              ← Unterseiten (noch leer)
 ├── images/
 │   ├── logo.jpg        ← Schullogo (bereits eingebunden)
 │   └── ...             ← Hier kommen die neuen Fotos rein
+├── CLAUDE.md           ← Leitfaden für die Arbeit mit Claude
 └── README.md           ← Diese Datei
 ```
 
@@ -19,48 +20,7 @@ franziskus-schule/
 
 1. **Live Server Extension installieren**: `Extensions` → suchen nach „Live Server" (von Ritwick Dey) → installieren
 2. `index.html` öffnen
-3. Rechtsklick im Editor → **„Open with Live Server"** – die Seite lädt im Browser und aktualisiert sich automatisch beim Speichern.
-
-## Neue Unterseite anlegen (z. B. „Aufnahme")
-
-1. Neue Datei `pages/aufnahme.html` anlegen
-2. Diese Grundstruktur verwenden – sie bindet das gemeinsame Stylesheet ein und hält Header/Footer konsistent:
-
-```html
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aufnahme – Franziskus-Schule</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
-</head>
-<body>
-  <!-- Header aus index.html kopieren, Logo-Pfad anpassen: src="../images/logo.jpg" -->
-  <header class="site-header"> … </header>
-
-  <main>
-    <!-- Seiten-Inhalt hier -->
-  </main>
-
-  <!-- Footer aus index.html kopieren -->
-  <footer class="site-footer"> … </footer>
-</body>
-</html>
-```
-
-**Wichtig bei Unterseiten**: Alle Pfade sind relativ zur Unterseite.
-- Stylesheet: `../styles.css`
-- Logo: `../images/logo.jpg`
-- Bilder: `../images/dateiname.jpg`
-
-3. In der Navigation von `index.html` und allen anderen Seiten den Link aktualisieren:
-   ```html
-   <a href="pages/aufnahme.html">Aufnahme</a>
-   ```
+3. Rechtsklick im Editor → **„Open with Live Server"** – die Seite lädt im Browser und aktualisiert sich automatisch beim Speichern (auch bei Änderungen an `styles.css`).
 
 ## Fotos einfügen – Anleitung
 
@@ -83,7 +43,7 @@ franziskus-schule/
 </div>
 ```
 
-Die Bild-Styles (`.hero-image img`, `.station-image img` usw.) sind bereits in `styles.css` hinterlegt – eingefügte Fotos füllen den Rahmen automatisch korrekt aus (`object-fit: cover`).
+Die nötigen Bildstyles sind bereits in `styles.css` hinterlegt (Sektion `BILDER`). `.hero-image img`, `.station-image img`, `.feature-image img`, `.tafelbild img` und `.anfahrt-map img` bekommen automatisch `width: 100%`, `height: 100%`, `object-fit: cover` und `display: block` – das Bild füllt den Platzhalter sauber und ohne Verzerrung aus.
 
 ## Liste der Bildplatzhalter
 
@@ -114,12 +74,16 @@ Zwei gute Optionen:
 
 2. **Weiter im Web-Chat**: Du kannst auch einfach den HTML-Code per Copy/Paste hin und her geben. Mehr Aufwand, dafür kein Setup nötig.
 
+Eine ausführliche Leitlinie zu Design, Tonalität und Schutzzonen findest du in [CLAUDE.md](CLAUDE.md).
+
 ## Farbsystem (zum schnellen Anpassen)
 
-Alle Farben sind oben in der `:root`-Sektion von `styles.css` definiert. Wenn du sie änderst, ziehen sie sich durch die ganze Seite:
+Alle Farben sind in `styles.css` ganz oben in der `:root`-Sektion definiert. Wenn du sie änderst, ziehen sie sich durch die ganze Seite:
 
 ```css
 --navy: #3F4D7A;       /* Primärfarbe (aus dem Logo) */
 --amber: #D9813E;      /* Akzentfarbe (aus der Logo-Spirale) */
 --sand: #F5EFE6;       /* Hintergrundfarbe */
 ```
+
+> **Hinweis:** Die Farbvariablen, die Tonalität in Texten und das Logo sind Schutzzonen. Bitte erst Rücksprache halten, bevor du sie änderst (siehe [CLAUDE.md](CLAUDE.md)).

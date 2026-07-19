@@ -1,0 +1,11 @@
+# Windows-Systemdateien
+desktop.ini
+Thumbs.db
+ehthumbs.db
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+*.swp
