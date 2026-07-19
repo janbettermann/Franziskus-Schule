@@ -45,45 +45,110 @@
 
   <main>
 
-    <section class="page-header">
+    <!-- ========== SEITENKOPF MIT SPIRALE ========== -->
+    <section class="fehler-kopf">
       <div class="container">
-        <div class="eyebrow">Seite nicht gefunden</div>
-        <h1>Hier geht es leider <em>nicht weiter</em>.</h1>
-        <p class="page-lead">Die Seite, die Sie suchen, gibt es nicht — vielleicht wurde sie umbenannt, vielleicht hat sich ein Tippfehler in die Adresse geschlichen. Das ist kein Drama. Unten stehen die Wege zurück.</p>
+        <div class="fehler-grid">
+          <div class="fehler-text">
+            <div class="eyebrow">Seite nicht gefunden</div>
+            <h1>Hier geht es leider <em>nicht weiter</em>.</h1>
+            <p class="page-lead">Diese Seite gibt es nicht — vielleicht wurde sie umbenannt, vielleicht hat sich ein Tippfehler in die Adresse geschlichen. Kein Grund zur Sorge: Unten stehen alle Wege zurück.</p>
+          </div>
+
+          <div class="fehler-zeichen" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="presentation">
+              <defs>
+                <radialGradient id="sp404" cx="50%" cy="50%" r="52%">
+                  <stop offset="0%"   stop-color="#F7D774"/>
+                  <stop offset="22%"  stop-color="#E8A468"/>
+                  <stop offset="45%"  stop-color="#D9813E"/>
+                  <stop offset="72%"  stop-color="#9A8CA8"/>
+                  <stop offset="100%" stop-color="#B9B0A0"/>
+                </radialGradient>
+              </defs>
+              <path d="M 58 32 A 26 26 0 1 1 6 32 A 22 22 0 1 1 50 32 A 18 18 0 1 1 14 32 A 14 14 0 1 1 42 32 A 10 10 0 1 1 22 32 A 6 6 0 1 1 34 32"
+                    fill="none" stroke="url(#sp404)" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="31" cy="32" r="2.4" fill="#F7D774"/>
+            </svg>
+            <span class="fehler-nummer">404</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="zustaendig">
+    <!-- ========== WEGE ZURÜCK ========== -->
+    <section class="fehler-wege">
       <div class="container">
-        <div class="zustaendig-header">
+        <div class="fehler-wege-kopf">
           <div class="eyebrow">Wohin Sie wollten</div>
           <h2>Vielleicht war es <em>eines davon</em>.</h2>
         </div>
 
-        <ul class="zustaendig-liste">
-          <li>
-            <div class="zustaendig-anlass">Wie eine Aufnahme abläuft, das AO-SF-Verfahren, häufige Fragen</div>
-            <a href="/Franziskus-Schule/pages/aufnahme.html" class="zustaendig-mail">Aufnahme</a>
-          </li>
-          <li>
-            <div class="zustaendig-anlass">Förderschwerpunkte, Schultag, Therapien, Schülerfirmen</div>
-            <a href="/Franziskus-Schule/pages/fuer-ihr-kind.html" class="zustaendig-mail">Für Ihr Kind</a>
-          </li>
-          <li>
-            <div class="zustaendig-anlass">Der Jahreslauf mit unseren Festen</div>
-            <a href="/Franziskus-Schule/pages/schulleben.html" class="zustaendig-mail">Schulleben</a>
-          </li>
-          <li>
-            <div class="zustaendig-anlass">Formulare, Konzepte, Satzungen</div>
-            <a href="/Franziskus-Schule/pages/downloads.html" class="zustaendig-mail">Downloads</a>
-          </li>
-          <li>
-            <div class="zustaendig-anlass">Anschrift, Ansprechpartner, Anfahrt</div>
-            <a href="/Franziskus-Schule/pages/kontakt.html" class="zustaendig-mail">Kontakt</a>
-          </li>
-        </ul>
+        <div class="wege-grid">
+          <a href="/Franziskus-Schule/pages/aufnahme.html" class="weg-karte">
+            <span class="weg-karte-titel">Aufnahme</span>
+            <span class="weg-karte-text">Wie eine Aufnahme abläuft, das AO-SF-Verfahren in Klartext und die häufigsten Fragen.</span>
+            <span class="weg-karte-pfeil" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
 
-        <p class="zustaendig-hinweis">Wenn Sie nicht weiterkommen: Rufen Sie uns einfach an, <a href="tel:+4922479000151">02247 9000 151</a>. Wir helfen Ihnen gern weiter.</p>
+          <a href="/Franziskus-Schule/pages/fuer-ihr-kind.html" class="weg-karte">
+            <span class="weg-karte-titel">Für Ihr Kind</span>
+            <span class="weg-karte-text">Förderschwerpunkte, der Schultag, Therapien im Haus und die Schülerfirmen der Oberstufe.</span>
+            <span class="weg-karte-pfeil" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+
+          <a href="/Franziskus-Schule/pages/schulleben.html" class="weg-karte">
+            <span class="weg-karte-titel">Schulleben</span>
+            <span class="weg-karte-text">Der Jahreslauf mit unseren Festen — von Michaeli im September bis Johanni im Juni.</span>
+            <span class="weg-karte-pfeil" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+
+          <a href="/Franziskus-Schule/pages/downloads.html" class="weg-karte">
+            <span class="weg-karte-titel">Downloads</span>
+            <span class="weg-karte-text">Anmeldebogen, Jahresplaner, Schulkonzept, Schulordnung und die Satzungen der Vereine.</span>
+            <span class="weg-karte-pfeil" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+
+          <a href="/Franziskus-Schule/pages/kontakt.html" class="weg-karte">
+            <span class="weg-karte-titel">Kontakt</span>
+            <span class="weg-karte-text">Anschrift, Ansprechpartner im Sekretariat, Anfahrt mit Auto, Bus und Schulbus.</span>
+            <span class="weg-karte-pfeil" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+
+          <a href="/Franziskus-Schule/" class="weg-karte">
+            <span class="weg-karte-titel">Zur Startseite</span>
+            <span class="weg-karte-text">Von vorn anfangen — wer wir sind und für welche Kinder unsere Schule da ist.</span>
+            <span class="weg-karte-pfeil" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ANRUFEN ========== -->
+    <section class="fehler-hilfe">
+      <div class="container">
+        <div class="hilfe-box">
+          <div class="hilfe-text">
+            <h2>Lieber <em>fragen</em>?</h2>
+            <p>Wenn Sie nicht finden, was Sie suchen, rufen Sie uns einfach an. Das Sekretariat ist an Schultagen vormittags besetzt — und oft ist eine Frage in zehn Minuten geklärt.</p>
+          </div>
+          <a href="tel:+4922479000151" class="btn-primary">
+            02247 9000 151
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
       </div>
     </section>
 
