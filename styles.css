@@ -2384,6 +2384,215 @@ a {
   color: var(--ink-muted);
 }
 
+/* ========== „KONTAKT" — SEITEN-SPEZIFISCHE STYLES ========== */
+
+.zustaendig-header,
+.verwaltung-header,
+.gremien-header,
+.rechtliches-header {
+  max-width: 44rem;
+  margin-bottom: clamp(2.25rem, 4vw, 3.25rem);
+}
+
+.zustaendig-header h2,
+.verwaltung-header h2,
+.gremien-header h2,
+.rechtliches-header h2,
+.anfahrt-seite h2 {
+  font-size: clamp(1.875rem, 3.5vw, 2.75rem);
+  font-weight: 350;
+  color: var(--navy-deep);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.zustaendig-header h2 em,
+.verwaltung-header h2 em,
+.gremien-header h2 em,
+.rechtliches-header h2 em,
+.anfahrt-seite h2 em {
+  font-style: italic;
+  font-weight: 350;
+  color: var(--amber-deep);
+}
+
+.zustaendig-header p,
+.verwaltung-header p,
+.gremien-header p {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* --- Direkte Kontaktwege --- */
+.kontakt-wege {
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 2.5vw, 2.25rem);
+}
+
+.kontakt-karte {
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--amber);
+}
+
+.kontakt-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: 0.75rem;
+}
+
+.kontakt-wert {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--navy-deep);
+  line-height: 1.35;
+  text-decoration: none;
+  margin-bottom: 0.625rem;
+}
+
+a.kontakt-wert:hover {
+  color: var(--amber-deep);
+}
+
+.kontakt-adresse {
+  font-size: 1.0625rem;
+}
+
+.kontakt-karte p {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+
+/* --- Wen Sie wofür erreichen --- */
+.zustaendig {
+  background-color: var(--cream-warm);
+  padding: var(--space-xxl) 0;
+}
+
+.zustaendig-liste {
+  list-style: none;
+  max-width: 48rem;
+  border-top: 1px solid var(--sand-deep);
+}
+
+.zustaendig-liste li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: baseline;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--sand-deep);
+}
+
+.zustaendig-anlass {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.zustaendig-mail {
+  font-size: 0.9375rem;
+  color: var(--navy);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(63, 77, 122, 0.25);
+  white-space: nowrap;
+}
+
+.zustaendig-mail:hover {
+  color: var(--amber-deep);
+  border-bottom-color: var(--amber);
+}
+
+.zustaendig-hinweis {
+  margin-top: 1.75rem;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+/* --- Verwaltung --- */
+.verwaltung {
+  padding: var(--space-xxl) 0;
+}
+
+.verwaltung-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Ohne Foto brauchen die Karten eine Kante, sonst schweben die
+   Namen konturlos im Weißraum. */
+.verwaltung-grid .person {
+  padding-top: 1.125rem;
+  border-top: 1px solid var(--sand-deep);
+}
+
+/* --- Anfahrt (Unterseite) --- */
+.anfahrt-seite {
+  background-color: var(--cream-warm);
+  padding: var(--space-xxl) 0;
+}
+
+.anfahrt-block {
+  margin-top: 2rem;
+}
+
+.anfahrt-block h3 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--navy-deep);
+  margin-bottom: 0.625rem;
+}
+
+.anfahrt-block p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+/* --- Gremien --- */
+.gremien {
+  padding: var(--space-xxl) 0;
+}
+
+.gremien-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.gremium h3 {
+  font-size: 1.375rem;
+  font-weight: 500;
+  color: var(--navy-deep);
+  margin-bottom: 0.875rem;
+}
+
+.gremium p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+
+/* --- Rechtliches --- */
+.rechtliches {
+  background-color: var(--cream-warm);
+  padding: var(--space-xxl) 0;
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
   .main-nav {
@@ -2577,6 +2786,28 @@ a {
     gap: 1rem;
   }
 
+  .kontakt-grid,
+  .verwaltung-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .gremien-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Anlass und Adresse untereinander — die Adressen sind zu lang,
+     um daneben zu passen. */
+  .zustaendig-liste li {
+    grid-template-columns: 1fr;
+    gap: 0.375rem;
+  }
+
+  .zustaendig-mail {
+    white-space: normal;
+    word-break: break-word;
+  }
+
   .fest-zeit {
     flex-direction: row;
     align-items: baseline;
@@ -2590,6 +2821,11 @@ a {
 }
 
 @media (max-width: 600px) {
+  .kontakt-grid,
+  .verwaltung-grid {
+    grid-template-columns: 1fr;
+  }
+
   .logo-image {
     height: 54px;
   }
