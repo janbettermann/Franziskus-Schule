@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schriftvergleich – Franziskus-Schule</title>
+  <meta name="description" content="Vier Schriftkombinationen im direkten Vergleich, mit echtem Text von der Website.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+
+  <style>
+    /* Die beiden Baar-Schriften, lokal eingebunden.
+       Noch als TTF — für den Vergleich völlig ausreichend.
+       Erst wenn eine Variante gewinnt, lohnt die Umwandlung in WOFF2. */
+    @font-face {
+      font-family: 'Baar Metanoia';
+      src: url('../fonts/baar/baar-metanoia-regular.ttf') format('truetype');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Baar Metanoia';
+      src: url('../fonts/baar/baar-metanoia-bold.ttf') format('truetype');
+      font-weight: 700; font-style: normal; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Baar Metanoia';
+      src: url('../fonts/baar/baar-metanoia-italic.ttf') format('truetype');
+      font-weight: 400; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Baar Metanoia';
+      src: url('../fonts/baar/baar-metanoia-bolditalic.ttf') format('truetype');
+      font-weight: 700; font-style: italic; font-display: swap;
+    }
+    @font-face {
+      font-family: 'Baar Sophia';
+      src: url('../fonts/baar/baar-sophia-regular.ttf') format('truetype');
+      font-weight: 400; font-style: normal; font-display: swap;
+    }
+
+    .vergleich { padding-bottom: var(--space-xxl); }
+
+    .variante {
+      border-top: 3px solid var(--navy-deep);
+      padding: 2.5rem 0 3.5rem;
+    }
+
+    .variante-kopf {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.75rem 1.5rem;
+      margin-bottom: 2.25rem;
+      font-family: var(--font-body);
+    }
+
+    .variante-nr {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--navy-deep);
+      padding: 0.3rem 0.7rem;
+      border-radius: 2px;
+    }
+
+    .variante-name { font-size: 1.0625rem; font-weight: 600; color: var(--navy-deep); }
+    .variante-hinweis { font-size: 0.875rem; color: var(--ink-muted); flex-basis: 100%; max-width: 60ch; line-height: 1.6; }
+
+    /* Die Musterseite. Alle Größen wie auf der echten Website. */
+    .muster h2 {
+      font-size: clamp(2.25rem, 5vw, 4rem);
+      font-weight: 350; line-height: 1.08;
+      color: var(--navy-deep);
+      letter-spacing: -0.025em;
+      max-width: 18ch;
+      margin-bottom: 1.5rem;
+    }
+    .muster h2 em { font-style: italic; font-weight: 350; color: var(--amber-deep); }
+    .muster h3 {
+      font-size: 1.5rem; font-weight: 500;
+      color: var(--navy-deep); margin: 2.25rem 0 0.875rem;
+    }
+    .muster .lead { font-size: 1.1875rem; line-height: 1.7; color: var(--ink-soft); max-width: 60ch; margin-bottom: 1.25rem; }
+    .muster p { font-size: 1rem; line-height: 1.75; color: var(--ink-soft); max-width: 68ch; margin-bottom: 0.875rem; }
+    .muster .klein { font-size: 0.875rem; color: var(--ink-muted); }
+    .muster strong { font-weight: 700; color: var(--ink); }
+
+    /* Variante A — der aktuelle Stand */
+    .v-a .muster h2, .v-a .muster h3 { font-family: 'Fraunces', Georgia, serif; }
+    .v-a .muster p, .v-a .muster .lead { font-family: 'Instrument Sans', system-ui, sans-serif; }
+
+    /* Variante B — Metanoia in den Überschriften */
+    .v-b .muster h2, .v-b .muster h3 { font-family: 'Baar Metanoia', Georgia, serif; }
+    .v-b .muster p, .v-b .muster .lead { font-family: 'Instrument Sans', system-ui, sans-serif; }
+
+    /* Variante C — alles aus der Baar-Familie */
+    .v-c .muster h2, .v-c .muster h3 { font-family: 'Baar Metanoia', Georgia, serif; }
+    .v-c .muster p, .v-c .muster .lead { font-family: 'Baar Sophia', system-ui, sans-serif; }
+
+    /* Variante D — Metanoia durchgehend */
+    .v-d .muster h2, .v-d .muster h3,
+    .v-d .muster p, .v-d .muster .lead { font-family: 'Baar Metanoia', system-ui, sans-serif; }
+
+    /* Schmalspalte zum Prüfen der Handy-Ansicht */
+    .schmal .muster { max-width: 375px; padding: 1.25rem; border: 1px dashed var(--sand-deep); border-radius: 2px; }
+    .schmal .muster h2 { font-size: 2rem; }
+    .schmal .muster .lead { font-size: 1.0625rem; }
+
+    .steuerung {
+      position: sticky; top: 0; z-index: 20;
+      background: var(--sand); border-bottom: 1px solid var(--sand-deep);
+      padding: 0.875rem 0; margin-bottom: 2rem;
+      font-family: var(--font-body);
+    }
+    .steuerung .container { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
+    .steuerung label { font-size: 0.9375rem; color: var(--ink-soft); display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+
+    .abc { font-size: 1.375rem; line-height: 2; color: var(--navy-deep); word-spacing: 0.2em; }
+    .abc-klein { font-size: 0.9375rem; color: var(--ink-muted); font-family: var(--font-body); margin-top: 0.5rem; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo-link" aria-label="Franziskus-Schule – Startseite">
+        <img src="../images/logo.jpg" alt="Franziskus-Schule – Freie Waldorf-Förderschule" class="logo-image">
+      </a>
+      <nav class="main-nav">
+        <a href="../index.html">Zurück zur Website</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+        <div class="eyebrow">Interne Entscheidungshilfe</div>
+        <h1>Vier Schriften im <em>Vergleich</em>.</h1>
+        <p class="page-lead">Alle vier Varianten zeigen denselben echten Text von unserer Website, in denselben Größen wie dort. So lässt sich beurteilen, wie eine Schrift „in großem Maße genutzt" wirkt — und nicht nur, wie ein schönes Wort in einer Musterzeile aussieht.</p>
+      </div>
+    </section>
+
+    <div class="steuerung">
+      <div class="container">
+        <label><input type="checkbox" id="schmalAn"> Handy-Breite anzeigen (375 px)</label>
+        <label><input type="checkbox" id="grossAn"> Schrift eine Stufe größer</label>
+      </div>
+    </div>
+
+    <section class="vergleich">
+      <div class="container" id="varianten">
+
+        <div class="variante v-a">
+          <div class="variante-kopf">
+            <span class="variante-nr">Variante A</span>
+            <span class="variante-name">Fraunces + Instrument Sans — der jetzige Stand</span>
+            <span class="variante-hinweis">Das, was die Schulleitung gesehen und kritisiert hat. Fraunces ist eine kontrastreiche Display-Antiqua: sehr dünne Haarstriche neben kräftigen Grundstrichen. Das wirkt edel, erschwert aber das Lesen — besonders bei kleinen Größen und schwachem Kontrast.</span>
+          </div>
+          <div class="muster">
+            <h2>Maßstab ist nicht, was einer kann, sondern <em>was er ist</em>.</h2>
+            <p class="lead">Viele Familien haben einen langen Suchweg hinter sich, bis sie bei uns landen. Wir versuchen, ihn von hier aus einfacher zu machen.</p>
+            <h3>Fünf Förderschwerpunkte. Eine Klasse.</h3>
+            <p>Bei uns lernen Kinder mit sehr unterschiedlichen Voraussetzungen gemeinsam. Das ist keine pragmatische Lösung, sondern pädagogische Überzeugung: Kinder lernen voneinander am meisten, wenn sie sich in ihrer Verschiedenheit begegnen dürfen. Ein Kind kann zwölf Jahre bei uns bleiben — von der ersten bis zur zwölften Klasse. Keine Brüche, keine neuen Systeme, keine Schulwechsel.</p>
+            <p><strong>Sprachtherapie, Heileurythmie und Krankengymnastik</strong> finden während der Schulzeit im Haus statt. Sie und Ihr Kind müssen nichts zusätzlich organisieren.</p>
+            <p class="klein">Bürozeiten: Mo – Fr, 7.30 – 12.30 Uhr · Breite Str. 44, 53819 Neunkirchen-Seelscheid</p>
+          </div>
+        </div>
+
+        <div class="variante v-b">
+          <div class="variante-kopf">
+            <span class="variante-nr">Variante B</span>
+            <span class="variante-name">Baar Metanoia in den Überschriften, Instrument Sans im Text</span>
+            <span class="variante-hinweis">Mein Vorschlag. Die anthroposophische Handschrift sitzt dort, wo sie gesehen wird und wo sie niemanden beim Lesen aufhält. Der Fließtext bleibt so ruhig wie möglich — für Eltern, die leichtes Lesen brauchen.</span>
+          </div>
+          <div class="muster">
+            <h2>Maßstab ist nicht, was einer kann, sondern <em>was er ist</em>.</h2>
+            <p class="lead">Viele Familien haben einen langen Suchweg hinter sich, bis sie bei uns landen. Wir versuchen, ihn von hier aus einfacher zu machen.</p>
+            <h3>Fünf Förderschwerpunkte. Eine Klasse.</h3>
+            <p>Bei uns lernen Kinder mit sehr unterschiedlichen Voraussetzungen gemeinsam. Das ist keine pragmatische Lösung, sondern pädagogische Überzeugung: Kinder lernen voneinander am meisten, wenn sie sich in ihrer Verschiedenheit begegnen dürfen. Ein Kind kann zwölf Jahre bei uns bleiben — von der ersten bis zur zwölften Klasse. Keine Brüche, keine neuen Systeme, keine Schulwechsel.</p>
+            <p><strong>Sprachtherapie, Heileurythmie und Krankengymnastik</strong> finden während der Schulzeit im Haus statt. Sie und Ihr Kind müssen nichts zusätzlich organisieren.</p>
+            <p class="klein">Bürozeiten: Mo – Fr, 7.30 – 12.30 Uhr · Breite Str. 44, 53819 Neunkirchen-Seelscheid</p>
+          </div>
+        </div>
+
+        <div class="variante v-c">
+          <div class="variante-kopf">
+            <span class="variante-nr">Variante C</span>
+            <span class="variante-name">Baar Metanoia + Baar Sophia — alles aus einer Familie</span>
+            <span class="variante-hinweis">Konsequenter, aber mit einem Haken: Von Baar Sophia gibt es nur einen einzigen Schnitt. Fettungen muss der Browser künstlich erzeugen — sichtbar am fett gesetzten Satz weiter unten, der plumper wirkt als ein echter Fettschnitt.</span>
+          </div>
+          <div class="muster">
+            <h2>Maßstab ist nicht, was einer kann, sondern <em>was er ist</em>.</h2>
+            <p class="lead">Viele Familien haben einen langen Suchweg hinter sich, bis sie bei uns landen. Wir versuchen, ihn von hier aus einfacher zu machen.</p>
+            <h3>Fünf Förderschwerpunkte. Eine Klasse.</h3>
+            <p>Bei uns lernen Kinder mit sehr unterschiedlichen Voraussetzungen gemeinsam. Das ist keine pragmatische Lösung, sondern pädagogische Überzeugung: Kinder lernen voneinander am meisten, wenn sie sich in ihrer Verschiedenheit begegnen dürfen. Ein Kind kann zwölf Jahre bei uns bleiben — von der ersten bis zur zwölften Klasse. Keine Brüche, keine neuen Systeme, keine Schulwechsel.</p>
+            <p><strong>Sprachtherapie, Heileurythmie und Krankengymnastik</strong> finden während der Schulzeit im Haus statt. Sie und Ihr Kind müssen nichts zusätzlich organisieren.</p>
+            <p class="klein">Bürozeiten: Mo – Fr, 7.30 – 12.30 Uhr · Breite Str. 44, 53819 Neunkirchen-Seelscheid</p>
+          </div>
+        </div>
+
+        <div class="variante v-d">
+          <div class="variante-kopf">
+            <span class="variante-nr">Variante D</span>
+            <span class="variante-name">Baar Metanoia durchgehend</span>
+            <span class="variante-hinweis">Der stärkste Charakter — und der Test, den die Mail eigentlich meint. Genau hier zeigt sich, ob die Schrift über mehrere Absätze trägt oder ob das Lesen anstrengend wird. Bitte den langen Absatz wirklich einmal ganz lesen, nicht nur ansehen.</span>
+          </div>
+          <div class="muster">
+            <h2>Maßstab ist nicht, was einer kann, sondern <em>was er ist</em>.</h2>
+            <p class="lead">Viele Familien haben einen langen Suchweg hinter sich, bis sie bei uns landen. Wir versuchen, ihn von hier aus einfacher zu machen.</p>
+            <h3>Fünf Förderschwerpunkte. Eine Klasse.</h3>
+            <p>Bei uns lernen Kinder mit sehr unterschiedlichen Voraussetzungen gemeinsam. Das ist keine pragmatische Lösung, sondern pädagogische Überzeugung: Kinder lernen voneinander am meisten, wenn sie sich in ihrer Verschiedenheit begegnen dürfen. Ein Kind kann zwölf Jahre bei uns bleiben — von der ersten bis zur zwölften Klasse. Keine Brüche, keine neuen Systeme, keine Schulwechsel.</p>
+            <p><strong>Sprachtherapie, Heileurythmie und Krankengymnastik</strong> finden während der Schulzeit im Haus statt. Sie und Ihr Kind müssen nichts zusätzlich organisieren.</p>
+            <p class="klein">Bürozeiten: Mo – Fr, 7.30 – 12.30 Uhr · Breite Str. 44, 53819 Neunkirchen-Seelscheid</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== ZEICHENPROBE ========== -->
+    <section class="zustaendig">
+      <div class="container">
+        <div class="zustaendig-header">
+          <div class="eyebrow">Zeichenprobe</div>
+          <h2>Umlaute, Zahlen und <em>Sonderzeichen</em>.</h2>
+          <p>Geprüft: Beide Schriften enthalten alle deutschen Zeichen einschließlich ß, Umlauten, typografischen Anführungszeichen und Gedankenstrichen.</p>
+        </div>
+
+        <h3 style="font-family: var(--font-body); font-size: 1rem; color: var(--navy-deep); margin-bottom: 0.5rem;">Baar Metanoia</h3>
+        <div class="abc" style="font-family: 'Baar Metanoia';">
+          ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+          abcdefghijklmnopqrstuvwxyz<br>
+          ÄÖÜ äöü ß · 0123456789 · „Anführung“ – Gedankenstrich — lang<br>
+          Förderschwerpunkte · Heileurythmie · Neunkirchen-Seelscheid
+        </div>
+        <p class="abc-klein">Vier Schnitte: Normal, Kursiv, Fett, Fett-Kursiv.</p>
+
+        <h3 style="font-family: var(--font-body); font-size: 1rem; color: var(--navy-deep); margin: 2.5rem 0 0.5rem;">Baar Sophia</h3>
+        <div class="abc" style="font-family: 'Baar Sophia';">
+          ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+          abcdefghijklmnopqrstuvwxyz<br>
+          ÄÖÜ äöü ß · 0123456789 · „Anführung“ – Gedankenstrich — lang<br>
+          Förderschwerpunkte · Heileurythmie · Neunkirchen-Seelscheid
+        </div>
+        <p class="abc-klein">Nur ein Schnitt: Normal. Kein echtes Fett, keine Kursive.</p>
+
+        <div class="todo-block">
+          <strong>Zur Lizenz:</strong> Beide Schriften stammen von Lutz Baar und sind laut seiner eigenen Angabe auf <code>baar.se/fonts.html</code> (Stand Juni 2018) frei für private, kulturelle und kommerzielle Nutzung. Einzige Auflage: Sie dürfen nicht verkauft werden. Für unsere Website ist die Nutzung damit gedeckt — und kostenlos.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const varianten = document.getElementById('varianten');
+    document.getElementById('schmalAn').addEventListener('change', e => {
+      varianten.classList.toggle('schmal', e.target.checked);
+    });
+    document.getElementById('grossAn').addEventListener('change', e => {
+      varianten.style.fontSize = e.target.checked ? '112.5%' : '';
+      varianten.querySelectorAll('.muster').forEach(m => {
+        m.style.zoom = e.target.checked ? '1.125' : '';
+      });
+    });
+  </script>
+
+</body>
+</html>
